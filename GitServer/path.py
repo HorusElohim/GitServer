@@ -1,7 +1,6 @@
 from pathlib import Path
 from os import makedirs, rename
-from shutil import rmtree
-from AdccUpgrade import PackageName
+from GitServer import PackageName
 
 
 def mkdir(folder):

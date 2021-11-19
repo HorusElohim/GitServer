@@ -1,6 +1,6 @@
 from git import Repo
 from pathlib import Path
-from AdccUpgrade.param import BaseParams
+from GitServer.param import BaseParams
 from .progress import GitProgress
 
 

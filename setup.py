@@ -1,8 +1,8 @@
 from setuptools import setup, find_namespace_packages
 
-PackageName = "AdccUpgrade"
+PackageName = "GitServer"
 AUTHOR = "HorusElohim"
-VERSION = "0.1"
+VERSION = "0.2"
 
 with open('requirements.txt') as f:
     requirements = f.read().splitlines()
@@ -17,7 +17,7 @@ with open('LICENSE') as f:
 setup(
     name=PackageName,
     author=AUTHOR,
-    url='https://github.com/HorusElohim/WebPy',
+    url='https://github.com/HorusElohim/GitServer.git',
     version=VERSION,
     license=license,
     description='',

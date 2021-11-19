@@ -4,6 +4,10 @@
     position: relative;
 }
 
+table {
+    width: 95%;
+}
+
 
 h1 {
     color: #c9d0d4;
@@ -33,6 +37,7 @@ p {
     margin: 0;
     text-align: left;
 }
+
 p1 {
     color: #bbc3c8;
     font-family: 'Courier New', sans-serif;
@@ -60,67 +65,52 @@ p1 {
 .module_name {
     color: #bbc3c8;
     font-family: 'Courier New', sans-serif;
-    line-height: 44px;
-    font-size: 36px;
+    font-size: 16px;
     float: left;
 }
-
 
 
 .module_branch {
     color: #3A60FE;
     font-family: 'Courier New', sans-serif;
-    font-size: 20px;
-    line-height: 22px;
-    text-indent: 30px;
-    padding-top: 15px;
-    padding-left: 30px;
-    text-align: center;
-    float: left;
-
+    font-size: 14px;
 }
 
 .module_tag {
     color: #4A80F6;
     font-family: 'Courier New', sans-serif;
-    font-size: 20px;
-    line-height: 22px;
-    text-indent: 30px;
-    padding-top: 15px;
-    text-align: right;
-
+    font-size: 14px;
 }
 
 .module_id {
-    color: #C1C1C1 ;
+    color: #C1C1C1;
     font-family: 'Courier New', sans-serif;
     font-size: 10px;
-    line-height: 20px;
-    text-indent: 30px;
 }
+
+.module_change_no {
+    color: white;
+    font-family: 'Courier New', sans-serif;
+    font-size: 11px;
+}
+
 
 .module_change_del {
     color: #F35F24;
     font-family: 'Courier New', sans-serif;
-    text-indent: 90px;
     font-size: 11px;
-    line-height: 16px
 }
 
 .module_change_mod {
     color: #E8DD1D;
     font-family: 'Courier New', sans-serif;
-    text-indent: 90px;
     font-size: 11px;
-    line-height: 16px
 }
 
 .module_change_new {
     color: #79F430;
     font-family: 'Courier New', sans-serif;
-    text-indent: 90px;
     font-size: 11px;
-    line-height: 16px
 }
 
 .module_spacer {

@@ -4,17 +4,17 @@ from flask import Flask, render_template, session, request, \
 from flask_socketio import SocketIO, emit, join_room, leave_room, \
     close_room, rooms, disconnect
 import os
-from AdccUpgrade import PackageName
-from AdccUpgrade.util import get_logger
-from AdccUpgrade.path import get_home_path
-from AdccUpgrade.git import GitRepo, create_git_dict
+from GitServer import PackageName
+from GitServer.util import get_logger
+from GitServer.path import get_home_path
+from GitServer.git import GitRepo, create_git_dict
 from datetime import datetime
 
 # Logger
 Logger = get_logger('Server', get_home_path(PackageName))
 
 # GitRepo
-gr = GitRepo(**create_git_dict(name='develop', path='/data/project/adcc_developer_pc_profile', auto_clone=False))
+gr = GitRepo(**create_git_dict(name='develop', path='/data/projects/adcc_developer_pc_profile', auto_clone=False))
 # Open Repo
 gr.open()
 
@@ -44,7 +44,6 @@ def clean_submodule_info(raw_status, raw_tag_commit):
             if len(sub_temp) > 1:
                 for x in sub_temp[1:]:
                     sub_modification.append(x)
-                    print(x)
             submodule_status.update({sub_name: {
                 'branch': sub_branch,
                 'changes': sub_modification
@@ -62,7 +61,7 @@ def clean_submodule_info(raw_status, raw_tag_commit):
 def background_thread():
     """Example of how to send server generated events to clients."""
     while True:
-        socketio.sleep(1)
+        socketio.sleep(3)
         # Dict submodule
         #      module_name:
         #                 tag:
@@ -137,6 +136,7 @@ def test_disconnect():
 def main():
     Logger.info('Server has started.')
     socketio.run(app, host='127.0.0.1', port=5000)
+
 
 if __name__ == '__main__':
     main()
