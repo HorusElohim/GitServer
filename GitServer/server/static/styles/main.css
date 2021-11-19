@@ -94,6 +94,13 @@ p1 {
     font-size: 11px;
 }
 
+.module_change_untracked {
+    color: greenyellow;
+    font-family: 'Courier New', sans-serif;
+    font-size: 11px;
+}
+
+
 
 .module_change_del {
     color: #F35F24;

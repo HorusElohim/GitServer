@@ -2,7 +2,7 @@
 <!--suppress HtmlUnknownTarget -->
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-    <title>ADCC-SW {{vehicle_name}} </title>
+    <title>GitServer {{vehicle_name}} </title>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
 
@@ -47,16 +47,20 @@
             if (Array.isArray(changes) && changes.length > 0){
                 // If there are changes
                 for (const change of changes) {
-                    let changes = document.createElement('div')
+                    let ch = document.createElement('div')
                     if (change.includes("modified:")) {
-                        changes.className = "module_change_mod"
+                        ch.className = "module_change_mod"
                     } else if (change.includes("new:")) {
-                        changes.className = "module_change_new"
+                        ch.className = "module_change_new"
                     } else if (change.includes("deleted:")) {
-                        changes.className = "module_change_del"
+                        ch.className = "module_change_del"
+                    }else if (change.includes("untracked")) {
+                        ch.className = "module_change_untracked"
                     }
+
+                    ch.innerText = change
                     // Add changes in the col_4
-                    col_4.appendChild(changes)
+                    col_4.appendChild(ch)
                 }
                 // With no changes
             } else {
@@ -142,64 +146,6 @@
                 }
                 // Add table
                 gitSubStatusContainer.appendChild(table)
-
-                //
-                // gitSubStatusContainer.innerText = ""
-                // var div_submodule_start = document.createElement("div");
-                // div_submodule_start.className = "module_container"
-                // div_submodule_start.innerHTML = "<p><b>Submodules</b></p> <br></br>"
-                // gitSubStatusContainer.appendChild(div_submodule_start)
-                //
-                // for ([module, info_dict] of Object.entries(msg.submodule_status)) {
-                //
-                //     let div_module_container = document.createElement("div");
-                //     div_module_container.className = "module_container"
-                //
-                //     let div_module_name = document.createElement("div");
-                //     div_module_name.className = "module_name"
-                //     div_module_name.innerHTML = "<p1><b>" + module + "</b></p1>"
-                //     div_module_container.appendChild(div_module_name)
-                //
-                //     // Branch
-                //     let div_module_branch = document.createElement("div");
-                //     div_module_branch.className = "module_branch";
-                //     div_module_branch.innerHTML = "<b>" + info_dict["branch"] + "</b> ";
-                //     div_module_container.appendChild(div_module_branch);
-                //
-                //     // Tag
-                //     let div_module_tag = document.createElement("div");
-                //     div_module_tag.className = "module_tag"
-                //     div_module_tag.innerHTML = "<b>" + info_dict["tag"] + "</b> "
-                //     div_module_container.appendChild(div_module_tag)
-                //
-                //     // Id
-                //     // let div_module_id = document.createElement("div");
-                //     // div_module_id.className = "module_id"
-                //     // div_module_id.innerHTML = "<b>" + info_dict["id"] + "</b> "
-                //     // div_module_container.appendChild(div_module_id)
-                //
-                //     // Module spacer
-                //     let div_module_spacer = document.createElement("div");
-                //     div_module_spacer.className = "module_spacer"
-                //     div_module_container.appendChild(div_module_spacer)
-                //
-                //     // Changes
-                //     if ( Array.isArray(info_dict["changes"]) && info_dict["changes"].length > 0){
-                //         for (const change of info_dict["changes"]){
-                //             let div_module_change = document.createElement("div");
-                //             div_module_change.innerHTML ="<b>"+ change + "</b>"
-                //             if (change.includes("modified:")){
-                //                 div_module_change.className = "module_change_mod"
-                //             }else if (change.includes("new:")){
-                //                 div_module_change.className = "module_change_new"
-                //             }else if (change.includes("deleted:")){
-                //                 div_module_change.className = "module_change_del"
-                //             }
-                //             div_module_container.appendChild(div_module_change)
-                //         }
-                //     }
-                    // gitSubStatusContainer.appendChild(div_module_container)
-                // }
             });
 
         });
@@ -207,7 +153,7 @@
 </head>
 <body>
 <h1>
-    ADCC SW Upgrade
+   GitServer
 </h1>
 
 <h2> Connection </h2>
